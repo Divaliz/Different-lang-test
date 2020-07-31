@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+import time
 
 
 def pytest_addoption(parser):
@@ -13,8 +14,13 @@ def browser(request):
     language = request.config.getoption("language")
     if language == "fr":
         browser.get("http://selenium1py.pythonanywhere.com/fr/catalogue/coders-at-work_207/")
+        time.sleep(30)
     elif language == "en":
         browser.get("http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/")
+        time.sleep(30)
+    elif language == "es":
+        browser.get("http://selenium1py.pythonanywhere.com/es/catalogue/coders-at-work_207/")
+        time.sleep(30)
     yield browser
     browser.quit()
 
